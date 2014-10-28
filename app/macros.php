@@ -123,3 +123,50 @@ Form::macro("field", function($options)
         return $markup;
     }
 );
+
+Form::macro("category", function($options)
+{
+    $markup = "";
+
+    if(!empty($options['class']))
+    {
+        $class = $options['class'];
+    }
+
+    if(!empty($options['span']))
+    {
+        $span = $options['span'];
+    }
+
+    if(!empty($options['h5']))
+    {
+        $h5 = $options['h5'];
+    }
+
+    if(!empty($options['p']))
+    {
+        $p = $options['p'];
+    }
+
+    if(!empty($options['a']))
+    {
+        $a = $options['a'];
+    }
+
+    if(!empty($options['href']))
+    {
+        $href = URL::route($options['href']);
+    } else {
+        $href = URL::route("front/index");
+    }
+
+    $markup .= "<li>
+                    <div class='thumbnail'><i class='icon-$class'></i>
+                        <h3><span>$span</span></h3>
+                        <h5>$h5</h5>
+                        <p>$p</p>
+                        <a href=$href class='btn'>$a</a></div>
+                </li>";
+
+    return $markup;
+});
