@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <div id="login" class="section">
+    <div id="group" class="section">
         {{Form::open(array(
             "route" => "user/login",
             "autocomplete"  => "off",

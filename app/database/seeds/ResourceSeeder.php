@@ -7,6 +7,12 @@ class ResourceSeeder extends DatabaseSeeder
         $resources = array(
             array(
                 "pattern"   => "/",
+                "name"      => "front/index",
+                "target"    => "FrontController@indexAction",
+                "secure"    => false
+            ),
+            array(
+                "pattern"   => "/login",
                 "name"      => "user/login",
                 "target"    => "UserController@loginAction",
                 "secure"    => false
@@ -36,7 +42,7 @@ class ResourceSeeder extends DatabaseSeeder
                 "secure"    => true
             ),
             array(
-                "pattern"   => "/group/index",
+                "pattern"   => "/group",
                 "name"      => "group/index",
                 "target"    => "GroupController@indexAction",
                 "secure"    => true
@@ -58,7 +64,13 @@ class ResourceSeeder extends DatabaseSeeder
                 "name"      => "group/delete",
                 "target"    => "GroupController@deleteAction",
                 "secure"    => true
-            )
+            ),
+            array(
+                "pattern"   => "/service",
+                "name"      => "service/index",
+                "target"    => "ServiceController@indexAction",
+                "secure"    => true
+            ),
         );
 
         foreach ($resources as $resource)

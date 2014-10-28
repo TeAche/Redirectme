@@ -44,9 +44,9 @@ $(document).ready(function () {
   $('#slides').superslides({
     slide_easing: 'easeInOutCubic',
     slide_speed: 800,
-    play: 4000,
+    play: 6000,
     pagination: true,
-    hashchange: true,
+    hashchange: false,
     scrollable: true
   });
 

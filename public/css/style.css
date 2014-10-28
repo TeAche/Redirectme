@@ -13,6 +13,7 @@
 }
 html {
 	overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 /* Typography */
@@ -195,7 +196,7 @@ div.profile a
 }
 
 /* Section Login */
-.section#login {
+.section#login, .section#group {
     right: 600px;
     width: 250px;
     top: 5%;
@@ -740,6 +741,10 @@ address a:hover {
 	background: rgba(0,0,0,0.5) !important;
 	border: none !important;
 	border-radius: 0 !important;
+}
+
+div#slides {
+    overflow-y: hidden;
 }
 
 /* Desktop small layout */
