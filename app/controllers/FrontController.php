@@ -6,7 +6,7 @@ class FrontController extends Controller
     {
         if (Auth::check())
         {
-            return View::make('front.index');
+            return View::make('user/profile');
         } else {
             return Redirect::route('user/login');
         }
