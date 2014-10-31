@@ -429,6 +429,11 @@ div.profile a
 	display: block;
 }
 
+.custom {
+    margin: 0 auto;
+    height: 10px;
+}
+
 /* Thumbnails */
 .thumbnails li {
 	margin: 0;

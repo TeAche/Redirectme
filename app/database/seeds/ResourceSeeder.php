@@ -71,6 +71,12 @@ class ResourceSeeder extends DatabaseSeeder
                 "target"    => "ServiceController@indexAction",
                 "secure"    => true
             ),
+            array(
+                "pattern"   => "/resource",
+                "name"      => "resource/index",
+                "target"    => "ResourceController@indexAction",
+                "secure"    => true
+            ),
         );
 
         foreach ($resources as $resource)

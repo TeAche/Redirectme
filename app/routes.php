@@ -51,6 +51,7 @@ Route::group(array("before" => "auth"), function()
             "uses"  => $resource->target
         ));
     }
+
     /*Route::any('/profile', array(
 
         "as"    => "user/profile",
