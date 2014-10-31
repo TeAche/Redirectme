@@ -3,7 +3,7 @@
 @stop
 @section("content")
 <!-- Services Section -->
-<div id="services" class="section section-expand">
+<div id="contact" class="section section-expand">
     <div class="section-title"><i class="icon-cog"></i><strong>Параметры</strong>
         <p><span>Настройка</span></p>
     </div>

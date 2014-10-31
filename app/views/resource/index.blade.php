@@ -3,13 +3,22 @@
 @stop
 @section("content")
 <!-- Services Section -->
-<div id="services" class="section section-expand">
-    <div class="section-title"><i class="icon-cog"></i><strong>Маршруты</strong>
+<div id="contact" class="section section-expand">
+    <div class="section-title"><i class="icon-road"></i><strong>Маршруты</strong>
         <p><span>Ресурсов сайта</span></p>
     </div>
 
     <!-- Services Content -->
     <div class="container">
+        <ul class="thumbnails">
+            <li class="span4">
+                <div class="thumbnail">
+                    <img data-src="holder.js/300x200" alt="">
+                    <h3>Создать маршрут</h3>
+                    <a href="{{ URL::route("resource/add") }}" class="btn goto-folio">Создать</a>
+                </div>
+            </li>
+        </ul>
         <hr />
         <h1 class="main-title">Выберите <span>маршрут</span></h1>
 
@@ -22,18 +31,6 @@
                 </div></a>
               </li>
             @endforeach
-        </ul>
-
-        <hr />
-
-        <ul class="thumbnails">
-          <li class="span4">
-            <div class="thumbnail">
-              <img data-src="holder.js/300x200" alt="">
-              <h3>Создать маршрут</h3>
-              <a href="" class="btn goto-folio">Создать</a>
-            </div>
-          </li>
         </ul>
     </div>
         <hr />

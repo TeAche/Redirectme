@@ -69,9 +69,9 @@ Form::macro("field", function($options)
         {
             case "text":
             {
-                $markup .= Form::label($name, $label, array(
+                /*$markup .= Form::label($name, $label, array(
                     "class" => "control-label"
-                ));
+                ));*/
 
                 $markup .= Form::text($name, $value, $parameters);
 
