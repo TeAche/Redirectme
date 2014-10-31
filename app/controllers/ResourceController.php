@@ -72,4 +72,17 @@ class ResourceController extends Controller
             "resource"     => $resource
         ));
     }
+
+    public function deleteAction()
+    {
+        $form = new ResourceForm();
+
+        if($form->isValidForDelete())
+        {
+            $group = Resource::findOrFail(Input::get("id"));
+            $group->delete();
+        }
+
+        return Redirect::route("resource/index");
+    }
 }

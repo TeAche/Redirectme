@@ -25,10 +25,13 @@
         <ul class="thumbnails">
             @foreach($resources as $resource)
               <li class="span4">
-                <a href="{{ URL::route("resource/edit") . "?id=" . $resource->id }}"><div class="thumbnail">
-                  <img data-src="holder.js/300x200" alt="">
-                  <h4>{{ $resource->id . ". " . $resource->name }}</h4>
-                </div></a>
+                <a href="{{ URL::route("resource/edit") . "?id=" . $resource->id }}">
+                    <div class="thumbnail">
+                        <img data-src="holder.js/300x200" alt="">
+                        <h4>{{ $resource->id . ". " . $resource->name }}</h4>
+                    </div>
+                </a>
+                  <div class="custom-icon"><a href="{{ URL::route("resource/delete") . "?id=" . $resource->id }}"><h4>X</h4></a></div>
               </li>
             @endforeach
         </ul>

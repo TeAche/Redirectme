@@ -146,6 +146,20 @@ div.profile a
     text-decoration: none;
 }
 
+div.custom-icon {
+    width: 10px;
+    height: 0;
+    float: right;
+    position: relative;
+    top: -55px;
+    right: 10px;
+}
+
+div.custom-icon h4:hover
+{
+    color: darkcyan;
+}
+
 /* Logo */
 .logo {
 	margin-top: -75px;
