@@ -77,6 +77,24 @@ class ResourceSeeder extends DatabaseSeeder
                 "target"    => "ResourceController@indexAction",
                 "secure"    => true
             ),
+            array(
+                "pattern"   => "/resource/add",
+                "name"      => "resource/add",
+                "target"    => "ResourceController@addAction",
+                "secure"    => true
+            ),
+            array(
+                "pattern"   => "/resource/edit",
+                "name"      => "resource/edit",
+                "target"    => "ResourceController@editAction",
+                "secure"    => true
+            ),
+            array(
+                "pattern"   => "/resource/delete",
+                "name"      => "resource/delete",
+                "target"    => "ResourceController@deleteAction",
+                "secure"    => true
+            ),
         );
 
         foreach ($resources as $resource)
