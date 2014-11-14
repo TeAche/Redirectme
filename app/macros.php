@@ -8,7 +8,7 @@ Form::macro("field", function($options)
 
         if(!empty($options["type"]))
         {
-            $type = $options->type;
+            $type = $options["type"];
         }
 
         if(empty($options["name"]))
@@ -91,9 +91,9 @@ Form::macro("field", function($options)
 
             case "checkbox":
             {
-                $markup .= "<div class'checkbox'>";
+                $markup .= "<div class='checkbox'>";
                 $markup .= "<label>";
-                $markup .= Form::checkbox($name, 1, !!$value);
+                $markup .= Form::checkbox($name, $value, $value);
                 $markup .= " " . $label;
                 $markup .= "</label>";
                 $markup .= "</div>";

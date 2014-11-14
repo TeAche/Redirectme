@@ -18,9 +18,10 @@ class ResourceController extends Controller
             if($form->isValidForAdd())
             {
                 Resource::create(array(
-                    "name" => Input::get("name"),
-                    "pattern" => Input::get("pattern"),
-                    "target" => Input::get("target")
+                    "name"      => Input::get("name"),
+                    "pattern"   => Input::get("pattern"),
+                    "target"    => Input::get("target"),
+                    "secure"    => (Input::get("secure"))?true:false,
                 ));
 
                 return Redirect::route("resource/index");
@@ -28,8 +29,9 @@ class ResourceController extends Controller
 
             return Redirect::route("resource/add")->withInput(array(
                 "name"      => Input::get("name"),
-                "pattern"      => Input::get("pattern"),
-                "target"      => Input::get("target"),
+                "pattern"   => Input::get("pattern"),
+                "target"    => Input::get("target"),
+                "secure"    => (Input::get("secure"))?true:false,
                 "errors"    => $form->getErrors()
             ));
         }
@@ -50,9 +52,10 @@ class ResourceController extends Controller
         {
             if($form->isValidForEdit())
             {
-                $resource->name = Input::get("name");
-                $resource->pattern = Input::get("pattern");
-                $resource->target = Input::get("target");
+                $resource->name     = Input::get("name");
+                $resource->pattern  = Input::get("pattern");
+                $resource->target   = Input::get("target");
+                $resource->secure   = (Input::get("secure"))?true:false;
                 $resource->save();
 
                 return Redirect::route("resource/index");
@@ -62,6 +65,7 @@ class ResourceController extends Controller
                 "name"      => Input::get("name"),
                 "pattern"   => Input::get("pattern"),
                 "target"    => Input::get("target"),
+                "secure"    => (Input::get("secure"))?true:false,
                 "errors"    => $form->getErrors(),
                 "url"       => $url
             ));

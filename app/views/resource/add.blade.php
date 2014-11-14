@@ -29,6 +29,7 @@
                     "placeholder"   => "user/profile",
                     "class"         => "span3"
                 )) }}
+
                 {{ Form::field(array(
                     "name"          => "pattern",
                     "label"         => "Паттерн маршрута",
@@ -36,6 +37,7 @@
                     "placeholder"   => "/user/profile",
                     "class"         => "span3"
                 )) }}
+
                 {{ Form::field(array(
                     "name"          => "target",
                     "label"         => "Таргет маршрута",
@@ -45,6 +47,16 @@
                 )) }}
 
                 {{ Form::submit("Создать", array("class" => "btn btn-large")) }}
+
+                {{ Form::field(array(
+                    "type"          => "checkbox",
+                    "name"          => "secure",
+                    "label"         => "Защищено",
+                    "form"          => $form,
+                    "value"         => true,
+                    "class"         => "span3"
+                )) }}
+
             </fieldset>
                 {{ Form::close() }}
             </div>
@@ -58,9 +70,6 @@
 
 </div>
 
-<!-- Switch Section -->
-<div class="switch-section">
-    <p class="switch-section-cont"><a href="{{ URL::route("front/index") }}" class="section-home {{ (Route::getCurrentRoute()->getPath() == "/") ? "active" : "" }}"><span class="icon-home"></span></a> <a href="#" class="section-about {{ (Route::getCurrentRoute()->getPath() == "doctor") ? "active" : "" }}"><span class="icon-smile"></span></a> <a href="#" class="section-services  {{ (Route::getCurrentRoute()->getPath() == "specimen") ? "active" : "" }}"><span class="icon-th-list"></span></a> <a href="#" class="section-folio {{ (Route::getCurrentRoute()->getPath() == "analyse") ? "active" : "" }}"><span class="icon-briefcase"></span></a> <a href="#" class="section-blog {{ (Route::getCurrentRoute()->getPath() == "user") ? "active" : "" }}"><span class="icon-user"></span></a> <a href="{{ URL::route("service/index") }}" class="section-contact {{ (Route::getCurrentRoute()->getPath() == "service") ? "active" : "" }}"><span class="icon-cog"></span></a></p>
-</div>
-<a href="#" class="section-close">?</a>
+@include("switch")
+
 @stop

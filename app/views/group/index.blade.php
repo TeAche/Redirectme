@@ -26,31 +26,14 @@
         <ul class="thumbnails">
             @foreach ($groups as $group)
             <li class="span4">
-                <div class="thumbnail">
-                    <img data-src="holder.js/300x200" alt="">
-                    <h4>{{ $group->id . ". " . $group->name }}</h4>
-                </div>
-                </a>
-            </li>
-            <li class="span4">
-
                 <a href="{{ URL::route("group/edit") }}?id={{ $group->id }}">
                     <div class="thumbnail">
                         <img data-src="holder.js/300x200" alt="">
-                        <h4>Edit</h4>
+                        <h4>{{ $group->id . ". " . $group->name }}</h4>
                     </div>
                 </a>
+                <div class="custom-icon"><a href="{{ URL::route("group/delete") }}?id={{ $group->id }}"><h4>X</h4></a></div>
             </li>
-            <li class="span4">
-
-                <a href="{{ URL::route("group/delete") }}?id={{ $group->id }}">
-                <div class="thumbnail">
-                    <img data-src="holder.js/300x200" alt="">
-                    <h4>Delete</h4>
-                </div>
-                </a>
-            </li>
-
             @endforeach
         </ul>
     @else
@@ -65,11 +48,6 @@
 
     </div>
 
+    @include("switch")
 
-
-    <!-- Switch Section -->
-    <div class="switch-section">
-        <p class="switch-section-cont"><a href="{{ URL::route("front/index") }}" class="section-home {{ (Route::getCurrentRoute()->getPath() == "/") ? "active" : "" }}"><span class="icon-home"></span></a> <a href="#" class="section-about {{ (Route::getCurrentRoute()->getPath() == "doctor") ? "active" : "" }}"><span class="icon-smile"></span></a> <a href="#" class="section-services  {{ (Route::getCurrentRoute()->getPath() == "specimen") ? "active" : "" }}"><span class="icon-th-list"></span></a> <a href="#" class="section-folio {{ (Route::getCurrentRoute()->getPath() == "analyse") ? "active" : "" }}"><span class="icon-briefcase"></span></a> <a href="#" class="section-blog {{ (Route::getCurrentRoute()->getPath() == "user") ? "active" : "" }}"><span class="icon-user"></span></a> <a href="{{ URL::route("service/index") }}" class="section-contact {{ (Route::getCurrentRoute()->getPath() == "service") ? "active" : "" }}"><span class="icon-cog"></span></a></p>
-    </div>
-    <a href="#" class="section-close">×</a>
 @stop

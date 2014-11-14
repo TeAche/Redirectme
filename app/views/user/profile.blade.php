@@ -1,7 +1,7 @@
 @extends("layout")
 @section("content")
 <!-- Pages Navigation -->
-<div id="about" class="section"><a href="#">
+<div id="about" class="section"><a href="{{ URL::route('doctor/index') }}">
         <div class="section-title"><i class="icon-smile"></i><strong>Врачи</strong>
             <p><span>База врачей</span></p>
         </div>
