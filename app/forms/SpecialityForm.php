@@ -1,28 +1,26 @@
 <?php
 
-class DoctorForm extends BaseForm
+class SpecialityForm extends BaseForm
 {
     public function isValidForAdd()
     {
         return $this->isValid(array(
-            "firstname" => "required",
-            "lastname"  => "required"
+            "title" => "required"
         ));
     }
 
     public function isValidForEdit()
     {
         return $this->isValid(array(
-            "id"        => "exists:doctor,id",
-            "firstname" => "required",
-            "lastname"   => "required"
+            "id"        => "exists:speciality,id",
+            "title" => "required"
         ));
     }
 
     public function isValidForDelete()
     {
         return $this->isValid(array(
-            "id" => "exists:doctor,id"
+            "id" => "exists:speciality,id"
         ));
     }
 }

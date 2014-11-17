@@ -2,55 +2,35 @@
 @section('header')
 @stop
 @section('content')
-<!-- Services Section -->
+<!-- Add Object Section -->
 <div id="about" class="section section-expand">
-    <div class="section-title"><a href="{{ URL::route("doctor/doctor") }}"><i class="icon-smile"></i></a><strong>Добавить</strong>
-        <p><span>Информацию о враче</span></p>
+    <div class="section-title"><a href="{{ URL::route("doctor/object") }}"><i class="icon-home"></i></a><strong>Добавить</strong>
+        <p><span>Объект</span></p>
     </div>
 
-    <!-- Add Doctor Content -->
+    <!-- Add Object Content -->
     <div class="container">
         <hr />
 
         <div class="row">
             <div class="span12">
 
-                <h2>Добавить <span>врача</span></h2>
+                <h2>Добавить <span>объект</span></h2>
                 {{ Form::open(array(
-                "route"         => "doctor/doctor/add",
+                "route"         => "doctor/object/add",
                 "autocomplete"  => "off",
                 "class"         => "contact-form"
                 )) }}
                 <fieldset>
                     {{ Form::field(array(
-                    "name"          => "firstname",
-                    "label"         => "Имя врача",
+                    "name"          => "title",
+                    "label"         => "Название объекта",
                     "form"          => $form,
-                    "placeholder"   => "Иван",
-                    "class"         => "span3"
-                    )) }}
-
-                    {{ Form::field(array(
-                    "name"          => "lastname",
-                    "label"         => "Фамилия врача",
-                    "form"          => $form,
-                    "placeholder"   => "Иванов",
-                    "class"         => "span3"
-                    )) }}
-
-                    {{ Form::field(array(
-                    "name"          => "middlename",
-                    "label"         => "Отчество врача",
-                    "form"          => $form,
-                    "placeholder"   => "Иванович",
+                    "placeholder"   => "ГЦЗ №1",
                     "class"         => "span3"
                     )) }}
 
                     {{ Form::submit("Создать", array("class" => "btn btn-large")) }}
-
-                    {{ Form::select("object_id", $objects) }}
-
-                    {{ Form::select("speciality_id", $specialities) }}
 
                     <!---{{ Form::field(array(
                     "type"          => "checkbox",
