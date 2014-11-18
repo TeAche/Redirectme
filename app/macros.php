@@ -170,3 +170,42 @@ Form::macro("category", function($options)
 
     return $markup;
 });
+
+Form::macro("table", function($options)
+{
+    $markup = "";
+    $header = "";
+    $cells = "";
+    if($options['size'] < 1)
+    {
+        return;
+    }
+    $size = $options['size'];
+    if(!empty($options['head']))
+    {
+        $head = $options['head'];
+    }
+    for($i = 0; $i < $size; $i++)
+    {
+        $header .= "<th>" . $head[$i] . "</th>";
+    }
+    if(!empty($options['rows']))
+    {
+        $rows = $options['rows'];
+    }
+    for($i = 0; $i < count($rows)/$size; $i++)
+    {
+        $cells .= "<tr>";
+        for($j = 0; $j < $size; $j++)
+        {
+            $cells .= "<td>" . $rows[$i*$size+$j] . "</td>";
+        }
+        $cells .= "</tr>";
+    }
+    $markup .= "
+        <table class='table table-bordered'>" . $header . "
+            " . $cells . "
+        </table>
+    ";
+    return $markup;
+});

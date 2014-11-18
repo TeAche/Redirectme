@@ -11,4 +11,19 @@ class FrontController extends Controller
             return Redirect::route('user/login');
         }
     }
+
+    public function testAction()
+    {
+        $resources = Resource::all();
+        $rows = array();
+        foreach ($resources as $resource)
+        {
+            $rows[] = $resource->id;
+            $rows[] = $resource->name;
+            $rows[] = $resource->pattern;
+            $rows[] = $resource->target;
+        }
+        $head = array('id', 'name', 'pattern', 'target');
+        return View::make('front/test', array('rows' => $rows, 'head' => $head));
+    }
 }
