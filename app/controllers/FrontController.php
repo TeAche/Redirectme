@@ -14,7 +14,7 @@ class FrontController extends Controller
 
     public function testAction()
     {
-        $resources = Resource::all();
+        $resources = Resource::take(10)->get();
         $rows = array();
         foreach ($resources as $resource)
         {

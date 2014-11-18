@@ -209,3 +209,95 @@ Form::macro("table", function($options)
     ";
     return $markup;
 });
+
+Form::macro("paginator", function ($options)
+{
+    $markup = "";
+    $links = "";
+
+    if(!empty($options['items'])) {
+        $items = $options['items'];
+    }
+
+    foreach ($items as $route=>$item)
+    {
+        $links .= '<li><a href=' . $route . '>' . $item . '</a></li>';
+    }
+
+    $hrefprev = URL::route('test');
+    $hrefnext = URL::route('test');
+
+    $markup .= "
+        <div class='pagination'>
+            <ul>
+            <li><a href=$hrefprev>Prev</a></li>
+            " . $links . "
+            <li><a href=$hrefnext>Next</a></li>
+            </ul>
+        </div>
+    ";
+
+    return $markup;
+});
+
+Form::macro("dropdown", function($options)
+{
+    $markup = "";
+    $links = "";
+    if(!empty($options['head']))
+    {
+        $head = $options['head'];
+    }
+    if(!empty($options['items']))
+    {
+        $items = $options['items'];
+    }
+    foreach ($items as $route=>$item)
+    {
+        $links .= "<li><a href=" . $route . ">" . $item . "</a></li>";
+    }
+    $markup .= "
+        <ul class='nav nav-tabs'>
+            <li class='dropdown'>
+                <a class='dropdown-toggle' data-toggle='dropdown' href='#'>
+                    " . $head . "<b class='caret'></b>
+                </a>
+                <ul class='dropdown-menu'>
+                " . $links . "
+                </ul>
+            </li>
+        </ul>
+    ";
+
+    return $markup;
+});
+
+Form::macro("breadcrumbs", function($options)
+{
+    $markup = "";
+    $links = "";
+    if(!empty($options['items']))
+    {
+        $items = $options['items'];
+    }
+
+    $active = $options['active'];
+    foreach ($items as $route=>$item)
+    {
+        if ($item == $active) break;
+        $links .= "
+            <li>
+                <a href=$route>$item</a>
+                <span class='divider'>/</span>
+            </li>
+        ";
+    }
+    $markup = "
+        <ul class='breadcrumb'>
+            " . $links . "
+            <li class='active'>$active</li>
+        </ul>
+    ";
+
+    return $markup;
+});

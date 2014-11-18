@@ -21,43 +21,24 @@
         </div>
 
         <div class="span3">
-            <div class="pagination">
-                <ul>
-                    <li><a href="#">Prev</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">Next</a></li>
-                </ul>
-            </div>
+            {{ Form::paginator(array(
+                "items" => array("1" => "One", "2" => "Two"),
+            )) }}
         </div>
     </div>
     <div class="row">
         <div class="span9">
-            <ul class="breadcrumb">
-                <li><a href="#">Home</a> <span class="divider">/</span></li>
-                <li><a href="#">Library</a> <span class="divider">/</span></li>
-                <li class="active">Data</li>
-            </ul>
+            {{ Form::breadcrumbs(array(
+                "items" => array("1" => "One", "2" => "Two", "3" => "Three"),
+                "active" => "Three"
+            )) }}
         </div>
 
         <div class="span3">
-            <ul class="nav nav-tabs">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Menu
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
-                    </ul>
-                </li>
-            </ul>
+            {{ Form::dropdown(array(
+                "head"      => "SuperMenu",
+                "items"     => array("1" => "One", "2" => "Two", "3" => "Three")
+            )) }}
         </div>
     </div>
 
@@ -121,11 +102,6 @@
     </div>
     <div class="row">
         <div class="span6">
-            {{ Form::table(array(
-                "size"  => 2,
-                "head"  => array("head1", "head2"),
-                "rows"  => array("row11", "row12", "row21", "row22", "row31", "row32")
-            )) }}
         </div>
         <div class="span6">
             {{ Form::table(array(
