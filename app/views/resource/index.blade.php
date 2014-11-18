@@ -35,6 +35,18 @@
               </li>
             @endforeach
         </ul>
+        <div class="row">
+            <div class="span8">
+                {{ Form::table(array(
+                    "size" => count($head),
+                    "head" => $head,
+                    "rows" => $rows,
+                    "baseroute" => "resource",
+                    "edit" => true,
+                    "delete" => true
+                )) }}
+            </div>
+        </div>
     </div>
         <hr />
 

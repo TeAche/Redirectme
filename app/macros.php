@@ -176,37 +176,69 @@ Form::macro("table", function($options)
     $markup = "";
     $header = "";
     $cells = "";
+
     if($options['size'] < 1)
     {
         return;
     }
+
     $size = $options['size'];
+
     if(!empty($options['head']))
     {
         $head = $options['head'];
     }
+
     for($i = 0; $i < $size; $i++)
     {
         $header .= "<th>" . $head[$i] . "</th>";
     }
+
+    if(!empty($options['baseroute']) && (!empty($options['edit'])))
+    {
+        $baserouteedit = URL::route($options['baseroute'] . "/edit") . "?id=";
+        $header .= "<th>Edit</th>";
+    }
+
+    if(!empty($options['baseroute']) && (!empty($options['delete'])))
+    {
+        $baseroutedelete = URL::route($options['baseroute'] . "/delete") . "?id=";
+        $header .= "<th>Delete</th>";
+    }
+
     if(!empty($options['rows']))
     {
         $rows = $options['rows'];
     }
+
     for($i = 0; $i < count($rows)/$size; $i++)
     {
         $cells .= "<tr>";
+
         for($j = 0; $j < $size; $j++)
         {
             $cells .= "<td>" . $rows[$i*$size+$j] . "</td>";
         }
+
+        if((!empty($baserouteedit)) && (!empty($options['edit']) && ($options['edit']==true)))
+        {
+            $cells .= "<td><a href=" . $baserouteedit . $rows[$i*$size] . ">Edit</a></td>";
+        }
+
+        if((!empty($baseroutedelete)) && !empty($options['delete']) && ($options['delete']==true))
+        {
+            $cells .= "<td><a href=" . $baseroutedelete . $rows[$i*$size] . ">Delete</a></td>";
+        }
+
         $cells .= "</tr>";
     }
+
     $markup .= "
         <table class='table table-bordered'>" . $header . "
             " . $cells . "
         </table>
     ";
+
     return $markup;
 });
 

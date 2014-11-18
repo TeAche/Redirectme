@@ -4,8 +4,18 @@ class GroupController extends Controller
 {
     public function indexAction()
     {
+        $head = array("id", "name");
+        $groups = Group::all();
+        foreach ($groups as $group)
+        {
+            $rows[] = $group['id'];
+            $rows[] = $group['name'];
+        }
+
         return View::make("group/index", array(
-            "groups" => Group::all()
+            "groups"    => $groups,
+            "head"      => $head,
+            "rows"      => $rows
         ));
     }
 

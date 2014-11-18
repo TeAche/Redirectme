@@ -4,9 +4,21 @@ class ResourceController extends Controller
 {
     public function indexAction()
     {
+        $head = array("id", "name", "pattern", "target", "secure");
         $resources = Resource::all();
-        return View::make("resource/index", array("resources" => $resources));
-
+        foreach ($resources as $resource)
+        {
+            $rows[] = $resource['id'];
+            $rows[] = $resource['name'];
+            $rows[] = $resource['pattern'];
+            $rows[] = $resource['target'];
+            $rows[] = $resource['secure'];
+        }
+        return View::make("resource/index", array(
+            "resources" => $resources,
+            "head" => $head,
+            "rows" => $rows
+        ));
     }
 
     public function addAction()

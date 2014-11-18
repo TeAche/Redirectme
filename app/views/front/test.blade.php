@@ -101,13 +101,13 @@
         </div>
     </div>
     <div class="row">
-        <div class="span6">
+        <div class="span4">
         </div>
-        <div class="span6">
+        <div class="span8">
             {{ Form::table(array(
                 "size"  => count($head),
                 "head"  => $head,
-                "rows"  => $rows
+                "rows"  => $rows,
             )) }}
         </div>
     </div>

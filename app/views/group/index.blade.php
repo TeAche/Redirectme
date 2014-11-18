@@ -7,25 +7,27 @@
     <div class="section-title"><i class="icon-lock"></i><strong>Доступ</strong>
         <p><span>К ресурсам сайта</span></p>
     </div>
-
     <!-- Services Content -->
     <div class="container">
-        <ul class="thumbnails">
-            <li class="span4">
-                <div class="thumbnail">
-                    <img data-src="holder.js/300x200" alt="">
-                    <h3>Создать группу</h3>
-                    <a href="{{ URL::route("group/add") }}" class="btn goto-folio">Создать</a>
-                </div>
-            </li>
-        </ul>
+        <div class="row">
+            <div class="span3">
+                <ul class="thumbnails">
+                    <li class="span3">
+                        <div class="thumbnail">
+                            <img data-src="holder.js/300x200" alt="">
+                            <h3>Создать группу</h3>
+                            <a href="{{ URL::route("group/add") }}" class="btn goto-folio">Создать</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <hr />
     @if (count($groups))
     <h1 class="main-title">Выберите <span>группу</span></h1>
-
         <ul class="thumbnails">
             @foreach ($groups as $group)
-            <li class="span4">
+            <li class="span3">
                 <a href="{{ URL::route("group/edit") }}?id={{ $group->id }}">
                     <div class="thumbnail">
                         <img data-src="holder.js/300x200" alt="">
@@ -36,6 +38,18 @@
             </li>
             @endforeach
         </ul>
+        <div class="row">
+            <div class="span4">
+                {{ Form::table(array(
+                    "size" => count($head),
+                    "head" => $head,
+                    "rows" => $rows,
+                    "baseroute" => "group",
+                    "edit" => true,
+                    "delete" => true
+                )) }}
+            </div>
+        </div>
     @else
         <p>There are no groups.</p>
     @endif
