@@ -51,10 +51,12 @@
 
                     {{ Form::submit("Сохранить", array("class" => "btn btn-large")) }}
 
-                    {{ Form::select("object_id", $objects, $doctor->object->id) }}
-
-                    {{ Form::select("speciality_id", $specialities, $doctor->speciality->id) }}
-
+                    <div class="span4" style="margin-top: 10px; margin-left: 0px;">
+                        {{ Form::select("object_id", $objects, $doctor->object->id) }}
+                    </div>
+                    <div class="span4" style="margin-top: 10px; margin-left: -50px;">
+                        {{ Form::select("speciality_id", $specialities, $doctor->speciality->id) }}
+                    </div>
                     <!---{{ Form::field(array(
                     "type"          => "checkbox",
                     "name"          => "secure",

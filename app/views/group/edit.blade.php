@@ -13,14 +13,15 @@
         <hr />
 
         <div class="row">
+            {{ Form::open(array(
+            "url"           => URL::full(),
+            "autocomplete"  => "off",
+            "class"         => "contact-form"
+            )) }}
             <div class="span12">
 
                 <h2>Изменить <span>доступ</span></h2>
-                {{ Form::open(array(
-                    "url"           => URL::full(),
-                    "autocomplete"  => "off",
-                    "class"         => "contact-form"
-                )) }}
+
                 <fieldset>
                     {{ Form::field(array(
                         "name"          => "name",
@@ -30,13 +31,18 @@
                         "value"         => $group->name,
                         "class"         => "span3"
                     )) }}
-
+                </fieldset>
+            </div>
+            <div class="row">
+                <div class="span4"></div>
+                <div class="span4">
                     @include('user/assign')
                     @include('resource/assign')
 
                     {{ Form::submit("Сохранить", array("class" => "btn-large btn")) }}
-                </fieldset>
-                {{ Form::close() }}
+
+                    {{ Form::close() }}
+                </div>
             </div>
         </div>
     </div>

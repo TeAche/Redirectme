@@ -680,6 +680,11 @@ div.custom-icon h4:hover
 	background: rgba(0,0,0,0.25);
 }
 
+/* Table */
+table {
+    color: black;
+    background-color: white;
+}
 /* Address */
 address {
 	margin: 20px auto 50px;
@@ -717,6 +722,7 @@ address a:hover {
 	color: #FFF;
 	float: left;
 }
+
 .contact-form input[type=text]::-ms-input-placeholder, .contact-form textarea::-ms-input-placeholder {
  color:    #FFF;
 }

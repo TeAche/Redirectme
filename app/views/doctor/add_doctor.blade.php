@@ -47,10 +47,13 @@
                     )) }}
 
                     {{ Form::submit("Создать", array("class" => "btn btn-large")) }}
+                    <div class="span4" style="margin-top: 10px; margin-left: 0px;">
+                        {{ Form::select("object_id", $objects) }}
+                    </div>
 
-                    {{ Form::select("object_id", $objects) }}
-
-                    {{ Form::select("speciality_id", $specialities) }}
+                    <div class="span4" style="margin-top: 10px; margin-left: -50px;">
+                        {{ Form::select("speciality_id", $specialities) }}
+                    </div>
 
                     <!---{{ Form::field(array(
                     "type"          => "checkbox",

@@ -8,7 +8,7 @@
         <a href="{{ URL::route('doctor/index') }}" class="section-about {{ (Route::getCurrentRoute()->getPath() == "doctor/index") ? "active" : "" }}">
         <span class="icon-smile"></span>
         </a>
-        <a href="#" class="section-services  {{ (Route::getCurrentRoute()->getPath() == "specimen") ? "active" : "" }}">
+        <a href="{{ URL::route('product/index') }}" class="section-services  {{ (Route::getCurrentRoute()->getPath() == "product") ? "active" : "" }}">
         <span class="icon-th-list"></span>
         </a>
         <a href="#" class="section-folio {{ (Route::getCurrentRoute()->getPath() == "analyse") ? "active" : "" }}">

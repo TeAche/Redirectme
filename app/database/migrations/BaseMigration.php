@@ -89,4 +89,9 @@ class BaseMigration extends Migration
     {
         return $this->addNullable("text", $key);
     }
+
+    public function addDecimal($key)
+    {
+        return $this->addNullable("decimal", $key);
+    }
 }
