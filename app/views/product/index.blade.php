@@ -1,67 +1,59 @@
-@extends("layout")
+@extends('layout')
 @section('header')
 @stop
-@section("content")
+@section('content')
 <!-- Product Section -->
-<div id="services" class="section section-expand">
-    <div class="section-title"><i class="icon-th-list"></i><strong>Препараты</strong>
-        <p><span>Список препаратов</span></p>
+<div id="about" class="section section-expand">
+    <div class="section-title"><i class="icon-smile"></i><strong>Список</strong>
+        <p><span>Продуктов</span></p>
     </div>
+
     <!-- Product Content -->
     <div class="container">
-        <div class="row">
-            <div class="span3">
-                <ul class="thumbnails">
-                    <li class="span3">
-                        <div class="thumbnail">
-                            <img data-src="holder.js/300x200" alt="">
-                            <h3>Создать препарат</h3>
-                            <a href="{{ URL::route("product/add") }}" class="btn goto-folio">Создать</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <hr />
-        @if (count($products))
-        <h1 class="main-title">Выберите <span>препарат</span></h1>
-        <ul class="thumbnails">
-            @foreach ($products as $product)
-            <li class="span3">
-                <a href="{{ URL::route("product/edit") }}?id={{ $product->id }}">
-                <div class="thumbnail">
-                    <img data-src="holder.js/300x200" alt="">
-                    <h4>{{ $product->id . ". " . $product->title }}</h4>
-                </div>
-                </a>
-                <div class="custom-icon"><a href="{{ URL::route("product/delete") }}?id={{ $product->id }}"><h4>X</h4></a></div>
-            </li>
-            @endforeach
-        </ul>
-        <div class="row">
-            <div class="span4">
-                {{ Form::table(array(
-                "size" => count($head),
-                "head" => $head,
-                "rows" => $rows,
-                "baseroute" => "product",
-                "edit" => true,
-                "delete" => true
+        <h1 class="main-title">Выберите <span>категорию</span></h1>
+        <p class="lead">для дальнейшей работы с продуктами</p>
+        <div class="flexslider">
+
+            <!-- Services List Carousel -->
+            <ul class="thumbnails slides">
+
+                <!-- Service Detail -->
+                {{ Form::category(array(
+                "class" => "th-list",
+                "span"  => "Продукты",
+                "h5"    => "Список продуктов",
+                "p"     => "Добавить, изменить, удалить данные о продукте",
+                "a"     => "Открыть",
+                "href"  => "product/product"
                 )) }}
-            </div>
+                {{ Form::category(array(
+                "class" => "home",
+                "span"  => "Форма",
+                "h5"    => "Формы продуктов",
+                "p"     => "Добавить, изменить, удалить формы",
+                "a"     => "Открыть",
+                "href"  => "product/form"
+                )) }}
+                {{ Form::category(array(
+                "class" => "home",
+                "span"  => "Объекты",
+                "h5"    => "База объектов",
+                "p"     => "Добавить, изменить, удалить объекты",
+                "a"     => "Открыть",
+                "href"  => "product/dosage"
+                )) }}
+            </ul>
         </div>
-        @else
-        <p>There are no products.</p>
-        @endif
         <hr />
 
         <!-- Service Slogan -->
         <h2><span>НЕ ТРОГАТЬ</span></h2>
         <p class="lead">Если ты не знаешь для чего эти настройки, <span>не трогай тут ничего</span> это раздел администратора.<br />
             Если ты хочешь что-то <span>изменить</span> свяжись с техником или администратором для подробной информации.</p>
-
     </div>
+</div>
 
-    @include("switch")
+@include("switch")
 
-    @stop
+@stop
